@@ -17,6 +17,7 @@
 package org.apache.log4j.spi;
 
 import org.apache.log4j.ULogger;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -97,7 +98,12 @@ public class ComponentBase implements Component {
     protected ULogger getLogger() {
         if (logger == null) {
             if (repository != null) {
-                logger = repository.getLogger(this.getClass().getName());
+                Logger l = repository.getLogger(this.getClass().getName());
+                if (l instanceof ULogger) {
+                    logger = (ULogger) l;
+                } else {
+                    logger = new Log4JULogger(l);
+                }
             } else {
                 logger = SimpleULogger.getLogger(this.getClass().getName());
             }
