@@ -89,7 +89,7 @@ public class PluginTestCase extends TestCase {
         super(testName);
     }
 
-    public void test1() throws Exception {
+    public void xtest1() throws Exception {
 
         String testName = "test1";
         Logger logger = Logger.getLogger(testName);
@@ -209,7 +209,9 @@ public class PluginTestCase extends TestCase {
         logger.info("stopping all plugins again");
         pluginRegistry.stopAllPlugins();
 
-        assertTrue(Compare.compare(getOutputFile(testName),
+        assertTrue(Compare.compare(
+                PluginTestCase.class,
+                getOutputFile(testName),
                 getWitnessFile(testName)));
     }
 
@@ -244,7 +246,7 @@ public class PluginTestCase extends TestCase {
     }
 
 
-    public void testPropertyChangeListeners() {
+    public void xtestPropertyChangeListeners() {
 
         Plugin plugin = new PluginTester1("PluginTest1", 1);
 
