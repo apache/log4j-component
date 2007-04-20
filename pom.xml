@@ -34,7 +34,7 @@
   </issueManagement>
   <ciManagement>
   		<system>Gump</system>
-  		 <url>http://vmgump.apache.org/gump/public/logging-log4j/logging-log4j/index.html</url>
+  		 <url>http://vmgump.apache.org/gump/public/logging-log4j-component/logging-log4j-component/index.html</url>
   </ciManagement>
 <mailingLists>
 	<mailingList>
@@ -156,7 +156,9 @@
     </plugin> 
 	<plugin> 
  		<groupId>org.codehaus.mojo</groupId> 
- 		<artifactId>cobertura-maven-plugin</artifactId> 
+ 		<artifactId>cobertura-maven-plugin</artifactId>
+		<!-- version 2.1 was flawed and reports 100% coverage  -->
+		<version>2.0</version>
 	</plugin> 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
