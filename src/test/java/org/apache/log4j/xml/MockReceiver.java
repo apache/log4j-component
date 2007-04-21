@@ -1,0 +1,1 @@
+/Users/curta/ls-svn/log4j/tests/src/java/org/apache/log4j/plugins/MockReceiver.java
