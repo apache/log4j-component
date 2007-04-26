@@ -67,7 +67,7 @@ Use of Maven to build this component is recommended.
     	   target="${javac.target}"
     	   source="${javac.source}"
     	   classpath="${log4j.jar}"/>
-    	<copy todir="target/classes">
+    	<copy todir="target/classes" overwrite="true">
     	    <fileset dir="src/main/resources"/>
     	</copy>
     </target>
@@ -98,14 +98,14 @@ Use of Maven to build this component is recommended.
     	   target="${javac.target}"
     	   source="${javac.source}"
     	   classpath="${log4j.jar}:${junit.jar}:target/classes"/>
-    	<copy todir="target/test-classes">
+    	<copy todir="target/test-classes" overwrite="true">
     		<fileset dir="src/test/resources"/>
     	</copy>
     </target>    
 
 
     <target name="test" depends="test-compile" description="Run unit tests">
-    	<junit printsummary="yes">
+    	<junit printsummary="yes" fork="true" dir="target">
     	    <classpath path="target/test-classes:target/classes:${log4j.jar}"/>
     		<batchtest>
     			<fileset dir="src/test/java/">
