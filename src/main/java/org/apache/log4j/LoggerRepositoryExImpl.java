@@ -20,6 +20,8 @@ package org.apache.log4j;
 import org.apache.log4j.helpers.LogLog;
 import org.apache.log4j.or.ObjectRenderer;
 import org.apache.log4j.or.RendererMap;
+import org.apache.log4j.plugins.Plugin;
+import org.apache.log4j.plugins.PluginConfigurator;
 import org.apache.log4j.plugins.PluginRegistry;
 import org.apache.log4j.scheduler.Scheduler;
 import org.apache.log4j.spi.ErrorItem;
@@ -29,7 +31,10 @@ import org.apache.log4j.spi.LoggerFactory;
 import org.apache.log4j.spi.LoggerRepository;
 import org.apache.log4j.spi.LoggerRepositoryEventListener;
 import org.apache.log4j.spi.LoggerRepositoryEx;
+import org.apache.log4j.spi.OptionHandler;
 import org.apache.log4j.spi.RendererSupport;
+import org.apache.log4j.xml.UnrecognizedElementHandler;
+import org.w3c.dom.Element;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -37,6 +42,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Vector;
 
 
@@ -46,7 +52,9 @@ import java.util.Vector;
  *   and implementing the newly added capabilities.
 */
 public final class LoggerRepositoryExImpl
-        implements LoggerRepositoryEx, RendererSupport {
+        implements LoggerRepositoryEx,
+        RendererSupport,
+        UnrecognizedElementHandler {
 
     /**
      * Wrapped logger repository.
@@ -579,6 +587,32 @@ public final class LoggerRepositoryExImpl
   public LoggerFactory getLoggerFactory() {
     return loggerFactory;
   }
+
+    /** {@inheritDoc} */
+    public boolean parseUnrecognizedElement(
+            final Element element,
+            final Properties props) throws Exception {
+        if ("plugin".equals(element.getNodeName())) {
+            OptionHandler instance =
+                    PluginConfigurator.parseElement(element, props, Plugin.class);
+            if (instance instanceof Plugin) {
+                Plugin plugin = (Plugin) instance;
+                String pluginName = PluginConfigurator.subst(element.getAttribute("name"), props);
+                if (pluginName.length() > 0) {
+                    plugin.setName(pluginName);
+                }
+                getPluginRegistry().addPlugin(plugin);
+                plugin.setLoggerRepository(this);
+
+                LogLog.debug("Pushing plugin on to the object stack.");
+                instance.activateOptions();
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     /**
      * Implementation of RendererSupportImpl if not
