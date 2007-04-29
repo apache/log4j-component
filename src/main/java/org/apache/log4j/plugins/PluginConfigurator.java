@@ -37,7 +37,6 @@ import org.apache.log4j.spi.LoggerFactory;
 import org.apache.log4j.spi.LoggerRepository;
 import org.apache.log4j.spi.OptionHandler;
 import org.apache.log4j.spi.RendererSupport;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.apache.log4j.xml.SAXErrorHandler;
 import org.apache.log4j.xml.UnrecognizedElementHandler;
 import org.w3c.dom.Document;
@@ -610,7 +609,7 @@ public class PluginConfigurator implements Configurator {
   static
   public
   void configure (Element element) {
-    DOMConfigurator configurator = new DOMConfigurator();
+    PluginConfigurator configurator = new PluginConfigurator();
     configurator.doConfigure(element,  LogManager.getLoggerRepository());
   }
 
@@ -791,7 +790,7 @@ public class PluginConfigurator implements Configurator {
   static
   public
   void configure(String filename) throws FactoryConfigurationError {
-    new DOMConfigurator().doConfigure(filename, 
+    new PluginConfigurator().doConfigure(filename, 
 				      LogManager.getLoggerRepository());
   }
 
@@ -801,7 +800,7 @@ public class PluginConfigurator implements Configurator {
   static
   public
   void configure(URL url) throws FactoryConfigurationError {
-    new DOMConfigurator().doConfigure(url, LogManager.getLoggerRepository());
+    new PluginConfigurator().doConfigure(url, LogManager.getLoggerRepository());
   }
 
   /**
