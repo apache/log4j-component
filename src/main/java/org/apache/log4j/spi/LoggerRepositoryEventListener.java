@@ -19,13 +19,13 @@ package org.apache.log4j.spi;
 
 
 /**
-  Interface used to listen for {@link LoggerRepository} related
+  Interface used to listen for LoggerRepository related
   events such as startup, reset, and shutdown.  Clients register
   an instance of the interface and the instance is called back
   when the various events occur.
 
-  {@link LoggerRepository} provides methods for adding and removing
-  LoggerEventListener instances.
+  LoggerRepository provides methods for adding and removing
+  LoggerRepositoryEventListener instances.
 
   @author Ceki G&uuml;lc&uuml;
   @author Mark Womack

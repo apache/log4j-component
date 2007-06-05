@@ -22,11 +22,11 @@ import org.apache.log4j.Logger;
 
 
 /**
-  Interface used to listen for {@link Logger} related events such as
+  Interface used to listen for Logger related events such as
   add/remove appender or changing levels.  Clients register an instance of
   the interface and the instance is called back when the various events occur.
 
-  {@link LoggerRepository} provides methods for adding and removing
+  LoggerRepository provides methods for adding and removing
   LoggerEventListener instances.
 
   When implementing the methods of this interface, it is useful to remember

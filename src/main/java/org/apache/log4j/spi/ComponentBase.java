@@ -77,7 +77,7 @@ public class ComponentBase implements Component {
     }
 
     /**
-     * Return the {@link LoggerRepository} this component is attached to.
+     * Return the LoggerRepository to which this component is attached.
      *
      * @return Owning LoggerRepository
      */
