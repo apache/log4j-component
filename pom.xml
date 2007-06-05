@@ -101,7 +101,7 @@
                     <manifestEntries>
                         <Implementation-Title>${project.name}</Implementation-Title>
                         <Implementation-Version>${project.version}</Implementation-Version>
-                        <Implementation-Vendor>"Apache Software Foundation"</Implementation-Vendor>
+                        <Implementation-Vendor>Apache Software Foundation</Implementation-Vendor>
                     </manifestEntries>
                 </manifestSection>
                 </manifestSections>

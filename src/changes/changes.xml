@@ -21,7 +21,7 @@
   </properties>
   <body>
     <release version="1.0" date="2007-06-05" description="Initial release">
-      <action dev="carnold" issue="42094" type="add">
+      <action issue="42094" type="add">
         Initial release of Component framework backported from log4j 1.3.
       </action>
     </release>
