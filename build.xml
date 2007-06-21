@@ -21,6 +21,8 @@
 This is a minimal build file to support Gump.
 Use of Maven to build this component is recommended.
 
+Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
+
 -->
 <project default="test">
     <!--  use build.properties file or command line to override these properties  -->
@@ -37,7 +39,7 @@ Use of Maven to build this component is recommended.
 
 	<!--  Versions for dependencies   -->
     <property name="log4j.version" value="1.2.8"/>
-    <property name="junit.version" value="4.3.1"/>
+    <property name="junit.version" value="3.8.1"/>
 	
 	<!--  Dependency locations - assumed to be in Maven 2 repository   -->
     <property name="junit.jar" 
@@ -58,7 +60,7 @@ Use of Maven to build this component is recommended.
     </target>
     
     
-    <target name="compile" depends="init" description="Compile implementation files">
+    <target name="compile" depends="init" unless="companion.jar" description="Compile implementation files">
         <mkdir dir="target/classes"/>
     	<javac destdir="target/classes"
            srcdir="src/main/java"
@@ -72,7 +74,7 @@ Use of Maven to build this component is recommended.
     	</copy>
     </target>
     
-    <target name="jar" depends="compile" description="Create jar">
+    <target name="jar" depends="compile" unless="companion.jar" description="Create jar">
     	<jar destfile="target/${project.jar}"
     	     basedir="target/classes">
     	  	<manifest>
@@ -86,7 +88,8 @@ Use of Maven to build this component is recommended.
     	</jar>
     </target>    
 
-    <target name="test-compile" depends="compile" description="Compile test files">
+    <target name="test-compile" depends="jar" description="Compile test files">
+	    <property name="companion.jar" value="target/${project.jar}"/>
         <mkdir dir="target/test-classes"/>
     	<javac destdir="target/test-classes"
            srcdir="src/test/java"
@@ -94,7 +97,7 @@ Use of Maven to build this component is recommended.
     	   debug="${javac.debug}"
     	   target="${javac.target}"
     	   source="${javac.source}"
-    	   classpath="${log4j.jar}:${junit.jar}:target/classes"/>
+    	   classpath="${log4j.jar}:${junit.jar}:${companion.jar}"/>
     	<copy todir="target/test-classes" overwrite="true">
     		<fileset dir="src/test/resources"/>
     	</copy>
@@ -103,7 +106,7 @@ Use of Maven to build this component is recommended.
 
     <target name="test" depends="test-compile" description="Run unit tests">
     	<junit printsummary="yes" fork="true" dir="target">
-    	    <classpath path="target/test-classes:target/classes:${log4j.jar}"/>
+    	    <classpath path="target/test-classes:${companion.jar}:${log4j.jar}"/>
     		<batchtest>
     			<fileset dir="src/test/java/">
     				<include name="**/*TestCase.java"/>
