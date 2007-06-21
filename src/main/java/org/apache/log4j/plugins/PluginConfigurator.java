@@ -22,7 +22,6 @@ import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.config.PropertySetter;
 import org.apache.log4j.helpers.FileWatchdog;
 import org.apache.log4j.helpers.Loader;
@@ -993,7 +992,7 @@ public class PluginConfigurator implements Configurator {
       }
 
       /**
-         Call {@link PropertyConfigurator#configure(String)} with the
+         Call {@link PluginConfigurator#configure(String)} with the
          <code>filename</code> to reconfigure log4j. */
       public
       void doOnChange() {

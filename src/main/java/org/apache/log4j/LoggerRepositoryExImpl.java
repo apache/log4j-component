@@ -352,17 +352,16 @@ public final class LoggerRepositoryExImpl
   }
 
   /**
-   * @TODO
-    Requests that a configuration changed event be sent to any registered
-    {@link LoggerRepositoryEventListener}.
-    @since 1.3*/
+   *
+   * Requests that a configuration changed event be sent to any registered
+   * {@link LoggerRepositoryEventListener}.
+   * @since 1.3*/
   public void fireConfigurationChangedEvent() {
   }
 
 
   /**
-     Returns a {@link Level} representation of the <code>enable</code>
-     state.
+     Returns the current threshold.
      @return current threshold level
 
      @since 1.2 */
@@ -479,7 +478,7 @@ public final class LoggerRepositoryExImpl
      default.  This removes all appenders from all categories, sets
      the level of all non-root categories to <code>null</code>,
      sets their additivity flag to <code>true</code> and sets the level
-     of the root logger to {@link Level#DEBUG DEBUG}.  Moreover,
+     of the root logger to DEBUG.  Moreover,
      message disabling is set its default "off" value.
 
      <p>Existing categories are not removed. They are just reset.
@@ -520,8 +519,8 @@ public final class LoggerRepositoryExImpl
      Shutting down a hierarchy will <em>safely</em> close and remove
      all appenders in all categories including the root logger.
 
-     <p>Some appenders such as {@link org.apache.log4j.net.SocketAppender}
-     and {@link AsyncAppender} need to be closed before the
+     <p>Some appenders such as org.apache.log4j.net.SocketAppender
+     and AsyncAppender need to be closed before the
      application exists. Otherwise, pending logging events might be
      lost.
 

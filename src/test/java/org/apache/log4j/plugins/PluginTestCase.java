@@ -17,34 +17,25 @@
 
 package org.apache.log4j.plugins;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
 import org.apache.log4j.FileAppender;
-import org.apache.log4j.Hierarchy;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;
 import org.apache.log4j.LoggerRepositoryExImpl;
-import org.apache.log4j.spi.LoggerRepository;
-import org.apache.log4j.spi.LoggerRepositoryEx;
-import org.apache.log4j.spi.RootLogger;
+import org.apache.log4j.SimpleLayout;
 import org.apache.log4j.util.Compare;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
 import java.io.File;
 import java.io.IOException;
-
 import java.util.HashMap;
 
 
 public class PluginTestCase extends TestCase {
 
-    static String FILE = "output/plugins.PluginTestCase";
+    static String FILE = "plugins.PluginTestCase";
     static String WITNESS = "witness/plugins.PluginTestCase";
     private static boolean verbosePluginOutput = true;
     private static HashMap repositoryMap = new HashMap();

@@ -192,7 +192,7 @@ public interface LoggerRepositoryEx extends LoggerRepository {
   void putObject(String key, Object value);
 
   /**
-   * Sets the logger factory used by {@link LoggerRepository#getLogger(String)}.
+   * Sets the logger factory used by LoggerRepository.getLogger(String).
    * @param loggerFactory factory to use, may not be null
    * @since 1.3
    */
@@ -200,7 +200,7 @@ public interface LoggerRepositoryEx extends LoggerRepository {
 
   /**
    * Returns the logger factory used by
-   * {@link LoggerRepository#getLogger(String)}.
+   * LoggerRepository.getLogger(String).
    *
    * @return non-null factory
    * @since 1.3
