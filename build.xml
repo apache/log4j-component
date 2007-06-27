@@ -21,7 +21,7 @@
 This is a minimal build file to support Gump.
 Use of Maven to build this component is recommended.
 
-Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
+Specify -Dcompanion.jar=foo.jar to test a previously prepared jar.
 
 -->
 <project default="test">
@@ -30,7 +30,7 @@ Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
 	
 	<!--  project details  -->
     <property name="project.name" value="apache-log4j-component"/>
-    <property name="project.title" value="Component"/>
+    <property name="project.title" value="Apache Component Companion for log4j 1.2."/>
     <property name="project.version" value="1.0"/>
     <property name="project.jar" value="${project.name}-${project.version}.jar"/>
     
@@ -38,7 +38,7 @@ Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
     <property name="m2_repo" location="${user.home}/.m2/repository"/>
 
 	<!--  Versions for dependencies   -->
-    <property name="log4j.version" value="1.2.8"/>
+    <property name="log4j.version" value="1.2.9"/>
     <property name="junit.version" value="3.8.1"/>
 	
 	<!--  Dependency locations - assumed to be in Maven 2 repository   -->
@@ -97,7 +97,7 @@ Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
     	   debug="${javac.debug}"
     	   target="${javac.target}"
     	   source="${javac.source}"
-    	   classpath="${log4j.jar}:${junit.jar}:${companion.jar}"/>
+    	   classpath="${companion.jar}:${log4j.jar}:${junit.jar}"/>
     	<copy todir="target/test-classes" overwrite="true">
     		<fileset dir="src/test/resources"/>
     	</copy>
@@ -106,18 +106,15 @@ Specify -Dcompanion.jar=foo.jar to test an previously prepared jar.
 
     <target name="test" depends="test-compile" description="Run unit tests">
     	<junit printsummary="yes" fork="true" dir="target">
-    	    <classpath path="target/test-classes:${companion.jar}:${log4j.jar}"/>
+    	    <classpath path="target/test-classes:${companion.jar}:${log4j.jar}:${junit.jar}"/>
     		<batchtest>
     			<fileset dir="src/test/java/">
+    				<include name="**/Test*.java"/>
     				<include name="**/*TestCase.java"/>
-    				<include name="**/*Test.java"/>
     			</fileset>
     	    </batchtest>
     	    <formatter type="plain" usefile="false"/>
     	</junit>
     </target>    
-	
-	<!--  This target is executed by Gump.  -->
-	<target name="gump" depends="test"/>
 
 </project>

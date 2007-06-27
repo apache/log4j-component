@@ -1,9 +1,10 @@
 /*
- * Copyright 1999,2004 The Apache Software Foundation.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  * 
  *      http://www.apache.org/licenses/LICENSE-2.0
  * 
@@ -34,7 +35,7 @@ public class Compare {
           final String fileName) throws IOException {
       String resourceName = fileName;
       if (fileName.startsWith("witness/")) {
-          resourceName = fileName.substring(8);
+          resourceName = fileName.substring(fileName.lastIndexOf('/') + 1);
       }
       InputStream is = testClass.getResourceAsStream(resourceName);
       if (is == null) {
