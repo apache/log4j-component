@@ -20,7 +20,7 @@
   <groupId>log4j</groupId>
   <artifactId>apache-log4j-component</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Apache Component Companion for log4j 1.2.</name>
   <description>This companion emulates the log4j 1.3 Component Framework to
   simplify the back-porting of code that made use of its services.  It does
@@ -67,9 +67,9 @@
 	</license>
 </licenses>
 <scm>
-	<connection>scm:svn:http://svn.apache.org/repos/asf/logging/log4j/companions/component/tags/v1_0_rc3</connection>
-	<developerConnection>scm:svn:https://svn.apache.org/repos/asf/logging/log4j/companions/component/tags/v1_0_rc3</developerConnection>
-	<url>http://svn.apache.org/viewcvs.cgi/logging/log4j/companions/component/tags/v1_0_rc3</url>
+	<connection>scm:svn:http://svn.apache.org/repos/asf/logging/log4j/companions/component/trunk</connection>
+	<developerConnection>scm:svn:https://svn.apache.org/repos/asf/logging/log4j/companions/component/trunk</developerConnection>
+	<url>http://svn.apache.org/viewcvs.cgi/logging/log4j/companions/component/trunk</url>
 </scm>
 <organization>
     <name>Apache Software Foundation</name>
