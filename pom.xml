@@ -33,7 +33,7 @@
   </issueManagement>
   <ciManagement>
   		<system>Gump</system>
-  		 <url>http://vmgump.apache.org/gump/public/logging-log4j-chainsaw/logging-log4j-chainsaw/index.html</url>
+  		 <url>http://vmgump.apache.org/gump/public/logging-log4j-component/logging-log4j-component/index.html</url>
   </ciManagement>
 <mailingLists>
 	<mailingList>
