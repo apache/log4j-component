@@ -35,7 +35,6 @@ import org.apache.log4j.Logger;
 
   @author Ceki G&uuml;lc&uuml;
   @author Mark Womack
-  @since 1.3
 */
 public interface LoggerEventListener {
   /**

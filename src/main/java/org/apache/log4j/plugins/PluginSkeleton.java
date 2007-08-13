@@ -40,7 +40,6 @@ import java.beans.PropertyChangeSupport;
  *
  * @author Mark Womack (mwomack@apache.org)
  * @author Paul Smith (psmith@apache.org)
- * @since 1.3
  */
 public abstract class PluginSkeleton extends ComponentBase implements Plugin {
     /**

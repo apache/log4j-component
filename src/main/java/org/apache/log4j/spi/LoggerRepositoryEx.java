@@ -40,20 +40,20 @@ import java.util.Map;
    @author Ceki G&uuml;lc&uuml;
    @author Mark Womack
    @author Curt Arnold
-   @since 1.3 */
+   */
 public interface LoggerRepositoryEx extends LoggerRepository {
   /**
     Add a {@link LoggerRepositoryEventListener} to the repository. The
     listener will be called when repository events occur.
      @param listener event listener, may not be null.
-    @since 1.3*/
+    */
   void addLoggerRepositoryEventListener(
     LoggerRepositoryEventListener listener);
 
   /**
     Remove a {@link LoggerRepositoryEventListener} from the repository.
    @param listener listener.
-    @since 1.3*/
+    */
   void removeLoggerRepositoryEventListener(
     LoggerRepositoryEventListener listener);
 
@@ -61,26 +61,24 @@ public interface LoggerRepositoryEx extends LoggerRepository {
     Add a {@link LoggerEventListener} to the repository. The  listener
     will be called when repository events occur.
    @param listener listener, may not be null.
-    @since 1.3*/
+    */
   void addLoggerEventListener(LoggerEventListener listener);
 
   /**
     Remove a {@link LoggerEventListener} from the repository.
    @param listener listener, may not be null.
-    @since 1.3*/
+    */
   void removeLoggerEventListener(LoggerEventListener listener);
 
   /**
    * Get the name of this logger repository.
    * @return name, may not be null.
-   * @since 1.3
    */
   String getName();
 
   /**
    * A logger repository is a named entity.
    * @param repoName new name, may not be null.
-   * @since 1.3
    */
   void setName(String repoName);
 
@@ -89,7 +87,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    * state?
    * @return true if repository is in original state.
    *
-   * @since 1.3
    */
   boolean isPristine();
 
@@ -97,7 +94,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    *  Set the pristine flag.
    * @param state state
    *  @see #isPristine
-   *  @since 1.3
    */
   void setPristine(boolean state);
 
@@ -106,40 +102,37 @@ public interface LoggerRepositoryEx extends LoggerRepository {
     {@link LoggerEventListener}.
     @param logger The logger from which the appender was removed.
     @param appender The appender removed from the logger.
-    @since 1.3*/
+    */
   void fireRemoveAppenderEvent(Category logger, Appender appender);
 
   /**
     Requests that a level changed event be sent to any registered
     {@link LoggerEventListener}.
     @param logger The logger which changed levels.
-    @since 1.3*/
+    */
   void fireLevelChangedEvent(Logger logger);
 
   /**
     Requests that a configuration changed event be sent to any registered
     {@link LoggerRepositoryEventListener}.
-    @since 1.3*/
+    */
   void fireConfigurationChangedEvent();
 
   /**
    * Return the PluginRegisty for this LoggerRepository.
    * @return plug in registry.
-   * @since 1.3
    */
   PluginRegistry getPluginRegistry();
 
   /**
    * Return the {@link Scheduler} for this LoggerRepository.
    * @return scheduler.
-   * @since 1.3
    */
   Scheduler getScheduler();
 
   /**
    * Get the properties specific for this repository.
    * @return property map.
-   * @since 1.3
    */
   Map getProperties();
 
@@ -147,7 +140,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    * Get the property of this repository.
    * @param key property key.
    * @return key value or null if not set.
-   * @since 1.3
    */
   String getProperty(String key);
 
@@ -155,7 +147,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    * Set a property of this repository.
    * @param key key, may not be null.
    * @param value new value, if null, property will be removed.
-   * @since 1.3
    */
   void setProperty(String key, String value);
 
@@ -179,7 +170,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    *
    * @param key key, may not be null.
    * @return The object stored under 'key'.
-   * @since 1.3
    */
   Object getObject(String key);
 
@@ -194,7 +184,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
   /**
    * Sets the logger factory used by LoggerRepository.getLogger(String).
    * @param loggerFactory factory to use, may not be null
-   * @since 1.3
    */
   void setLoggerFactory(LoggerFactory loggerFactory);
 
@@ -203,7 +192,6 @@ public interface LoggerRepositoryEx extends LoggerRepository {
    * LoggerRepository.getLogger(String).
    *
    * @return non-null factory
-   * @since 1.3
    */
   LoggerFactory getLoggerFactory();
 

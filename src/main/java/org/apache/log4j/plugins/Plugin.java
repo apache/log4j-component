@@ -40,7 +40,6 @@ import java.beans.PropertyChangeListener;
  * @author Mark Womack (mwomack@apache.org)
  * @author Nicko Cadell
  * @author Paul Smith (psmith@apache.org)
- * @since 1.3
  */
 public interface Plugin extends OptionHandler {
     /**

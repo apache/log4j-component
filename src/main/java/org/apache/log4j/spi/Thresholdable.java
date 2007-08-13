@@ -29,7 +29,6 @@ import org.apache.log4j.Level;
  *
  * @author Paul Smith (psmith@apache.org)
  * @author Mark Womack
- * @since 1.3
  */
 public interface Thresholdable {
     /**

@@ -137,7 +137,7 @@ public final class LoggerRepositoryExImpl
     Add a {@link LoggerRepositoryEventListener} to the repository. The
     listener will be called when repository events occur.
     @param listener listener
-    @since 1.3*/
+    */
   public void addLoggerRepositoryEventListener(
     final LoggerRepositoryEventListener listener) {
     synchronized (repositoryEventListeners) {
@@ -155,7 +155,7 @@ public final class LoggerRepositoryExImpl
   /**
     Remove a {@link LoggerRepositoryEventListener} from the repository.
     @param listener listener
-    @since 1.3*/
+    */
   public void removeLoggerRepositoryEventListener(
     final LoggerRepositoryEventListener listener) {
     synchronized (repositoryEventListeners) {
@@ -173,7 +173,6 @@ public final class LoggerRepositoryExImpl
     Add a {@link LoggerEventListener} to the repository. The  listener
     will be called when repository events occur.
     @param listener listener
-    @since 1.3
    */
   public void addLoggerEventListener(final LoggerEventListener listener) {
     synchronized (loggerEventListeners) {
@@ -204,7 +203,7 @@ public final class LoggerRepositoryExImpl
   /**
     Remove a {@link LoggerEventListener} from the repository.
     @param listener listener to be removed
-    @since 1.3*/
+    */
   public void removeLoggerEventListener(final LoggerEventListener listener) {
     synchronized (loggerEventListeners) {
       HierarchyEventListenerProxy proxy =
@@ -250,7 +249,6 @@ public final class LoggerRepositoryExImpl
    * Set the name of this repository.
    *
    * Note that once named, a repository cannot be rerenamed.
-   * @since 1.3
    * @param repoName name of hierarchy
    */
   public void setName(final String repoName) {
@@ -307,7 +305,6 @@ public final class LoggerRepositoryExImpl
 
   /**
    * {@inheritDoc}
-   * @since 1.3
    */
   public PluginRegistry getPluginRegistry() {
    if (pluginRegistry == null) {
@@ -347,7 +344,7 @@ public final class LoggerRepositoryExImpl
     Requests that a level changed event be sent to any registered
     {@link LoggerEventListener}.
     @param logger The logger which changed levels.
-    @since 1.3*/
+    */
   public void fireLevelChangedEvent(final Logger logger) {
   }
 
@@ -355,7 +352,8 @@ public final class LoggerRepositoryExImpl
    *
    * Requests that a configuration changed event be sent to any registered
    * {@link LoggerRepositoryEventListener}.
-   * @since 1.3*/
+   * 
+   */
   public void fireConfigurationChangedEvent() {
   }
 
@@ -428,7 +426,6 @@ public final class LoggerRepositoryExImpl
   /**
    * Add an error item to the list of previously encountered errors.
    * @param errorItem error to add to list of errors.
-   * @since 1.3
    */
   public void addErrorItem(final ErrorItem errorItem) {
     getErrorList().add(errorItem);

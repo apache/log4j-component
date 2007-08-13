@@ -24,7 +24,6 @@ import org.apache.log4j.Logger;
  * Most log4j components derive from this class.
  *
  * @author Ceki Gulcu
- * @since 1.3
  */
 public class ComponentBase implements Component {
 

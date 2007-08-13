@@ -21,7 +21,6 @@ package org.apache.log4j.spi;
  * A common interface shared by log4j components.
  *
  * @author Ceki Gulcu
- * @since 1.3
  */
 public interface Component {
 

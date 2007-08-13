@@ -35,7 +35,6 @@ import org.apache.log4j.spi.LoggerRepositoryEventListener;
  *
  * @author Mark Womack
  * @author Paul Smith
- * @since 1.3
  */
 public final class PluginRegistry {
     /**

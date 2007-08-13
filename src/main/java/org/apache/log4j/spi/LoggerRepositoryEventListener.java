@@ -29,7 +29,6 @@ package org.apache.log4j.spi;
 
   @author Ceki G&uuml;lc&uuml;
   @author Mark Womack
-  @since 1.3
 */
 public interface LoggerRepositoryEventListener {
   /**

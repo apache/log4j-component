@@ -55,7 +55,6 @@ import org.apache.log4j.spi.Thresholdable;
  * @author Mark Womack
  * @author Ceki G&uuml;lc&uuml;
  * @author Paul Smith (psmith@apache.org)
- * @since 1.3
  */
 public abstract class Receiver extends PluginSkeleton implements Thresholdable {
     /**
