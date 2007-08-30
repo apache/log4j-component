@@ -38,7 +38,7 @@ Specify -Dcompanion.jar=foo.jar to test a previously prepared jar.
     <property name="m2_repo" location="${user.home}/.m2/repository"/>
 
 	<!--  Versions for dependencies   -->
-    <property name="log4j.version" value="1.2.9"/>
+    <property name="log4j.version" value="1.2.15"/>
     <property name="junit.version" value="3.8.1"/>
 	
 	<!--  Dependency locations - assumed to be in Maven 2 repository   -->

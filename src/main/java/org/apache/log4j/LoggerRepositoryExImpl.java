@@ -21,7 +21,6 @@ import org.apache.log4j.helpers.LogLog;
 import org.apache.log4j.or.ObjectRenderer;
 import org.apache.log4j.or.RendererMap;
 import org.apache.log4j.plugins.Plugin;
-import org.apache.log4j.plugins.PluginConfigurator;
 import org.apache.log4j.plugins.PluginRegistry;
 import org.apache.log4j.scheduler.Scheduler;
 import org.apache.log4j.spi.ErrorItem;
@@ -31,9 +30,9 @@ import org.apache.log4j.spi.LoggerFactory;
 import org.apache.log4j.spi.LoggerRepository;
 import org.apache.log4j.spi.LoggerRepositoryEventListener;
 import org.apache.log4j.spi.LoggerRepositoryEx;
-import org.apache.log4j.spi.OptionHandler;
 import org.apache.log4j.spi.RendererSupport;
 import org.apache.log4j.xml.UnrecognizedElementHandler;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.w3c.dom.Element;
 
 import java.util.ArrayList;
@@ -589,11 +588,11 @@ public final class LoggerRepositoryExImpl
             final Element element,
             final Properties props) throws Exception {
         if ("plugin".equals(element.getNodeName())) {
-            OptionHandler instance =
-                    PluginConfigurator.parseElement(element, props, Plugin.class);
+            Object instance =
+                    DOMConfigurator.parseElement(element, props, Plugin.class);
             if (instance instanceof Plugin) {
                 Plugin plugin = (Plugin) instance;
-                String pluginName = PluginConfigurator.subst(element.getAttribute("name"), props);
+                String pluginName = DOMConfigurator.subst(element.getAttribute("name"), props);
                 if (pluginName.length() > 0) {
                     plugin.setName(pluginName);
                 }
@@ -601,7 +600,7 @@ public final class LoggerRepositoryExImpl
                 plugin.setLoggerRepository(this);
 
                 LogLog.debug("Pushing plugin on to the object stack.");
-                instance.activateOptions();
+                plugin.activateOptions();
                 return true;
             }
         }
