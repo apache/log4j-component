@@ -101,6 +101,10 @@ public interface Constants {
      */
   String ABSOLUTE_TIME_PATTERN = "HH:mm:ss,SSS";
 
+    /**
+     * SimpleTimePattern for ABSOLUTE.
+     */
+  String SIMPLE_TIME_PATTERN = "HH:mm:ss";
 
     /**
      * DATE string literal.
