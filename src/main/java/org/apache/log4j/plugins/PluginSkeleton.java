@@ -45,7 +45,7 @@ public abstract class PluginSkeleton extends ComponentBase implements Plugin {
     /**
      * Name of this plugin.
      */
-    protected String name = "";
+    protected String name = "plugin";
 
     /**
      * Active state of plugin.
