@@ -88,6 +88,7 @@
         <configuration>
             <source>1.4</source>
             <target>1.4</target>
+            <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
 	  <plugin>
@@ -183,6 +184,9 @@
 	 </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
         <executions>
             <execution>
                 <goals>
@@ -240,6 +244,8 @@
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
+        <!--  version 2.2 runs into http://jira.codehaus.org/browse/DOXIA-215  -->
+        <version>2.1</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -262,6 +268,19 @@
           <configuration>
               <goals>site-deploy</goals>
           </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rat-maven-plugin</artifactId>
+        <version>1.0-alpha-3</version>
+        <configuration>
+            <excludes>
+		<!--  empty file  -->
+		<exclude>src/site/resources/css/site.css</exclude>
+		<!--  sample log file  -->
+		<exclude>src/test/resources/org/apache/log4j/plugins/plugins.PluginTestCase.test1.txt</exclude>
+	    </excludes>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-changes-plugin</artifactId>
