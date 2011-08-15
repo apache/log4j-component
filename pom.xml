@@ -85,6 +85,7 @@
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
+        <version>0.7</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -239,8 +240,84 @@
             </execution>
         </executions>
       </plugin>
+      
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <templateFile>${basedir}/src/site/maven-site.vm</templateFile>
+          <reportPlugins>
+            <plugin>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>2.4</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>scm</report>
+                    <report>dependencies</report>
+                    <report>cim</report>
+                    <report>issue-tracking</report>
+                    <report>mailing-list</report>
+                    <report>license</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+          
+            <plugin>
+              <artifactId>maven-changes-plugin</artifactId>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>changes-report</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+              <configuration>
+                <issueLinkTemplate>%URL%/show_bug.cgi?id=%ISSUE%</issueLinkTemplate>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-pmd-plugin</artifactId>
+              <configuration>
+                <encoding>UTF-8</encoding>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <encoding>UTF-8</encoding>
+                <bottom><![CDATA[<p>Copyright ]]>© {currentYear} The Apache Software Foundation. Licensed under the <![CDATA[<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
+<p>Apache Extras Companion for Apache log4j, Apache log4j and Apache are trademarks of the Apache Software Foundation.</p>]]></bottom> 
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.rat</groupId>
+              <artifactId>apache-rat-plugin</artifactId>
+              <version>0.7</version>
+              <configuration>
+                <excludes>
+                  <!--  empty file  -->
+                  <exclude>src/site/resources/css/site.css</exclude>
+                  <!--  sample log file  -->
+                  <exclude>src/test/resources/org/apache/log4j/plugins/plugins.PluginTestCase.test1.txt</exclude>
+                </excludes>
+              </configuration>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <goals>site-deploy</goals>
+        </configuration>
+      </plugin>
     </plugins>
 </build>
+  
+  <!-- DEPENDENCIES -->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -272,70 +349,7 @@
       </exclusions>
     </dependency>
   </dependencies>
-  <reporting>
-    <excludeDefaults>true</excludeDefaults>
-    <plugins>
-      <plugin>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        <!--  version 2.2 runs into http://jira.codehaus.org/browse/DOXIA-215  -->
-        <version>2.1</version>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>scm</report>
-              <report>dependencies</report>
-              <report>cim</report>
-              <report>issue-tracking</report>
-              <report>mailing-list</report>
-              <report>license</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-      <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>jxr-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <configuration>
-              <goals>site-deploy</goals>
-          </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>rat-maven-plugin</artifactId>
-        <version>1.0-alpha-3</version>
-        <configuration>
-            <excludes>
-		<!--  empty file  -->
-		<exclude>src/site/resources/css/site.css</exclude>
-		<!--  sample log file  -->
-		<exclude>src/test/resources/org/apache/log4j/plugins/plugins.PluginTestCase.test1.txt</exclude>
-	    </excludes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-changes-plugin</artifactId>
-      	<reportSets>
-          <reportSet>
-            <reports>
-              <report>changes-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-        <configuration>
-        	<issueLinkTemplate>%URL%/show_bug.cgi?id=%ISSUE%</issueLinkTemplate>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-pmd-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </reporting>
+ 
  <distributionManagement>
     <repository>
       <id>logging.repo</id>
