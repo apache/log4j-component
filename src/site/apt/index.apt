@@ -13,11 +13,14 @@
 ~~ See the License for the specific language governing permissions and
 ~~ limitations under the License.
  ------
- Apache Component Companion for log4j 1.2
+ Apache Logging Component Companion for log4j 1.2
  ------
  ------
  ------
 
-   This companion implements on log4j 1.2 the component framework from the
+   Apache Logging Component Companion implements on log4j 1.2 the component framework from the
    discontinued log4j 1.3 development activity to support backporting
    log4j 1.3 code that depends on the framework.
+
+   This project is a project of {{{http://www.apache.org} The Apache Software Foundation}}
+   and is part of a large community of developers and users.

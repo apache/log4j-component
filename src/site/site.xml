@@ -17,12 +17,12 @@
 -->
 <project name="Component">
   <bannerLeft>
-    <name>Logging Services</name>
+    <name>Apache Logging Services</name>
     <src>images/ls-logo.jpg</src>
     <href>http://logging.apache.org/</href>
   </bannerLeft>
   <bannerRight>
-    <name>Apache log4j</name>
+    <name>Apache Logging log4j</name>
     <src>images/logo.jpg</src>
     <href>http://logging.apache.org/log4j</href>
   </bannerRight>
@@ -38,7 +38,7 @@
 	<menu name="Get component">
 	   <item name="Download" href="/download.html"/>
 	   <item name="Changes" href="/changes-report.html"/>
-	   <item name="License" href="/license.html"/>
+	   <item name="License" href="http://www.apache.org/licenses/"/>
 	</menu>
 
 	<menu name="About component">
@@ -64,6 +64,7 @@
 		<item name="Home" href="http://www.apache.org"/>	
 		<item name="Sponsorship" href="http://www.apache.org/foundation/sponsorship.html"/>
 		<item name="Thanks" href="http://www.apache.org/foundation/thanks.html"/>
+	  <item name="Security" href="http://www.apache.org/security"/>
 		<item name="Conferences" href="http://www.apachecon.com"/>
 	</menu>
 	
